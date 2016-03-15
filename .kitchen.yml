@@ -1,0 +1,28 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: puppet_apply
+  require_puppet_collections: true # default for puppet 4
+  resolve_with_librarian_puppet: false # rake will take care of this
+  require_chef_for_busser: false # will use packaged ruby from puppet
+  puppet_verbose: true
+  manifests_path: test/integration
+  modules_path: test/fixtures/modules
+  hiera_data_path: test/fixtures/hieradata
+  hiera_config_path: test/fixtures/hiera.yaml
+
+busser:
+  ruby_bindir: /opt/puppetlabs/puppet/bin # default for puppet 4
+
+platforms:
+  - name: puppetlabs/debian-7.8-64-nocm
+  - name: puppetlabs/debian-8.2-64-nocm
+  - name: puppetlabs/centos-6.6-64-nocm
+  - name: puppetlabs/centos-7.2-64-nocm
+
+suites:
+  - name: default
+    provisioner:
+      manifest: default/site.pp

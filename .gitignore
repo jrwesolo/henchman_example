@@ -1,0 +1,6 @@
+.librarian/
+.kitchen/
+.kitchen.local.yml
+.tmp/
+Gemfile.lock
+Puppetfile.lock

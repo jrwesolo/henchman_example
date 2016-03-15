@@ -1,0 +1,6 @@
+" This file is managed by Puppet
+" Local changes will be lost!
+
+set nocompatible
+set number
+set backspace=indent,eol,start
